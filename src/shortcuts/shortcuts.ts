@@ -11,7 +11,7 @@
 
 class Bag {
     constructor(
-        items: string[]
+       public items: string[]
     ) { }
 
     lookInside() {
@@ -20,17 +20,13 @@ class Bag {
 }
 
 class BrandedBag extends Bag {
-    constructor(
-        logo: string,
-        brand: string,
-        items: string[]
-    ) {
-        super(items);
-    }
+	constructor(public logo: string, public brand: string, public readonly items: string[]) {
+		super(items);
+	}
 
-    checkBrand() {
-        return `Brand - ${this.brand}`;
-    }
+	checkBrand() {
+		return `Brand - ${this.brand}`;
+	}
 }
 
 const devBag = new BrandedBag('<P/>', 'Przeprogramowani.pl', ['keys', 'sunglassess', 'books']);

@@ -9,16 +9,22 @@
 * Hint: https://www.typescriptlang.org/docs/handbook/basic-types.html
 */
 
-const age: string = 80;
-const firstName: number = 'Przemek';
-const todos: Map = [
-    { todo: 'Learn TypeScript' },
-    { todo: 'Subscribe Przeprogramowani', priority: 1},
-    { todo: 'Sign up for newsletter', priority: 1}
-]
+const age: number = 80;
+const firstName: string = 'Przemek';
+
+type Todo = {
+    todo: string,
+    priority?: number
+};
+
+const todos: Todo[] = [
+    { todo: "Learn TypeScript" },
+    { todo: "Subscribe Przeprogramowani", priority: 1 },
+    { todo: "Sign up for newsletter", priority: 1 }
+];
+
 
 /* Do not modify tests */
-
 test('should verify age', () => {
     expect(age).toBe(80);
 })

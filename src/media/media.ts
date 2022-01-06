@@ -10,15 +10,14 @@
 */
 
 enum Media {
-    Internet,
-    Press,
-    Radio
+	Internet = "Internet",
+	Press = "Prasa",
+	Radio = "Radio",
 }
 
-const przeprogramowani: Media = Media.Press;
+const przeprogramowani: Media = Media.Internet;
 
 /* Do not modify tests */
-
 test('should use proper media type', () => {
     expect(przeprogramowani).toBe('Internet')
 })

@@ -9,6 +9,11 @@
 * Hint: https://www.typescriptlang.org/docs/handbook/generics.html
 */
 
+interface BaseItem {
+    id: number,
+    name: string
+}
+
 interface Book {
     id: number;
     name: string;
@@ -36,14 +41,12 @@ const videos: Video[] = [
     { id: 5, name: 'Poznaj TypeScript', length: 22 }
 ]
 
-function processItems<T>(items: T[]): T[] {
-    return items
-        .filter(({ id }) => id > 2)
-        .map(({ id, name }) => ({ id, name }));
+function processItems<T extends Book | Video>(items: T[]): BaseItem[] {
+	return items.filter(({ id }) => id > 2).map(({ id, name }) => ({ id, name }));
 }
 
-const processedBooks = processItems(books);
-const processedVideos = processItems(videos);
+const processedBooks = processItems<Book>(books);
+const processedVideos = processItems<Video>(videos);
 
 /* Do not modify tests */
 
